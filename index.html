@@ -3,331 +3,221 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>らくトレ AI姿勢分析｜PT監修</title>
+<title>らくトレ AI姿勢分析 v2｜PT監修</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="らくトレ">
+<meta name="theme-color" content="#2a7f6f">
 <style>
 :root {
-  --bg: #f7f9fc;
+  --bg: #f4f7f5;
   --surface: #ffffff;
-  --surface2: #eef2f7;
-  --border: #dde3ed;
+  --surface2: #eef3f0;
+  --border: #d8e6df;
   --teal: #2a7f6f;
-  --teal-light: #e6f4f1;
-  --teal-mid: #a8d5cc;
+  --teal-dark: #1a5c4e;
+  --teal-light: #e4f2ed;
+  --teal-mid: #8fcabb;
   --blue: #3b6fd4;
   --blue-light: #eaf0fb;
   --orange: #e07a3a;
   --orange-light: #fdf2eb;
   --red: #d94f4f;
   --red-light: #fdeaea;
-  --yellow: #d4a017;
-  --yellow-light: #fdf6e3;
-  --text: #1c2333;
-  --text-mid: #4a5568;
-  --text-muted: #8a95a8;
-  --shadow: 0 2px 16px rgba(0,0,0,.07);
+  --yellow: #c49a0a;
+  --yellow-light: #fdf6dc;
+  --text: #1a2620;
+  --text-mid: #3d5248;
+  --text-muted: #7a9088;
+  --shadow: 0 2px 16px rgba(0,0,0,.06);
   --shadow-lg: 0 8px 40px rgba(0,0,0,.12);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Noto Sans JP', sans-serif;
-  min-height: 100vh;
-}
+body { background: var(--bg); color: var(--text); font-family: 'Noto Sans JP', sans-serif; min-height: 100vh; }
 
-/* ── Header ── */
-.header {
-  background: linear-gradient(135deg, #1a5c4e, var(--teal));
-  padding: 0 20px;
-  position: sticky; top: 0; z-index: 100;
-  box-shadow: 0 2px 14px rgba(42,127,111,.35);
-}
-.header-inner {
-  max-width: 680px; margin: 0 auto;
-  display: flex; align-items: center; gap: 10px; height: 58px;
-}
+/* Header */
+.header { background: linear-gradient(135deg, var(--teal-dark), var(--teal)); padding: 0 20px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 14px rgba(42,127,111,.35); }
+.header-inner { max-width: 680px; margin: 0 auto; display: flex; align-items: center; gap: 10px; height: 58px; }
 .logo { font-family: 'Shippori Mincho', serif; font-size: 22px; color: #fff; font-weight: 700; letter-spacing: .06em; }
-.logo span { font-size: 13px; color: rgba(255,255,255,.65); margin-left: 6px; font-family: 'Noto Sans JP', sans-serif; font-weight: 400; }
-.pt-badge {
-  margin-left: auto;
-  background: rgba(255,255,255,.18);
-  border: 1px solid rgba(255,255,255,.25);
-  color: #fff; font-size: 11px;
-  padding: 4px 12px; border-radius: 20px; letter-spacing: .05em;
-}
+.logo-ver { font-size: 11px; background: rgba(255,255,255,.2); color: #fff; padding: 2px 8px; border-radius: 10px; margin-left: 4px; }
+.pt-badge { margin-left: auto; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.25); color: #fff; font-size: 11px; padding: 4px 12px; border-radius: 20px; }
 
-/* ── Hero ── */
-.hero {
-  background: linear-gradient(160deg, #1a5c4e 0%, var(--teal) 60%, #3d9e8a 100%);
-  padding: 36px 20px 48px; text-align: center; position: relative; overflow: hidden;
-}
-.hero::before {
-  content: ''; position: absolute; top: -80px; right: -80px;
-  width: 260px; height: 260px; background: rgba(255,255,255,.05); border-radius: 50%;
-}
-.hero-tag {
-  display: inline-block; background: rgba(255,255,255,.15);
-  color: rgba(255,255,255,.9); font-size: 11px;
-  padding: 4px 16px; border-radius: 20px; letter-spacing: .1em; margin-bottom: 14px;
-}
-.hero h1 {
-  font-family: 'Shippori Mincho', serif;
-  font-size: 28px; color: #fff; line-height: 1.5; margin-bottom: 10px;
-}
+/* Hero */
+.hero { background: linear-gradient(160deg, var(--teal-dark) 0%, var(--teal) 60%, #3d9e8a 100%); padding: 32px 20px 44px; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 220px; height: 220px; background: rgba(255,255,255,.05); border-radius: 50%; }
+.hero-tag { display: inline-block; background: rgba(255,255,255,.15); color: rgba(255,255,255,.9); font-size: 11px; padding: 4px 16px; border-radius: 20px; letter-spacing: .1em; margin-bottom: 12px; }
+.hero h1 { font-family: 'Shippori Mincho', serif; font-size: 26px; color: #fff; line-height: 1.5; margin-bottom: 8px; }
 .hero p { font-size: 13px; color: rgba(255,255,255,.78); line-height: 1.8; }
-.hero-steps {
-  display: flex; justify-content: center; gap: 6px; margin-top: 20px; flex-wrap: wrap;
-}
-.hero-step {
-  display: flex; align-items: center; gap: 6px;
-  background: rgba(255,255,255,.12); border-radius: 8px;
-  padding: 8px 14px; font-size: 12px; color: rgba(255,255,255,.9);
-}
-.hero-arrow { color: rgba(255,255,255,.4); font-size: 14px; align-self: center; }
+.hero-steps { display: flex; justify-content: center; gap: 4px; margin-top: 18px; flex-wrap: wrap; }
+.hero-step { display: flex; align-items: center; gap: 5px; background: rgba(255,255,255,.12); border-radius: 8px; padding: 7px 12px; font-size: 11px; color: rgba(255,255,255,.9); }
+.hero-arrow { color: rgba(255,255,255,.4); font-size: 12px; }
 
-/* ── Main ── */
-.main { max-width: 680px; margin: 0 auto; padding: 24px 16px 80px; }
+/* Main */
+.main { max-width: 680px; margin: 0 auto; padding: 20px 16px 80px; }
 
-/* ── Upload card ── */
-.upload-card {
-  background: var(--surface); border-radius: 20px;
-  box-shadow: var(--shadow); border: 1px solid var(--border);
-  padding: 28px 24px; margin-bottom: 20px;
-}
-.upload-card h2 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
-.upload-card .sub { font-size: 12px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
+/* Upload section */
+.section-card { background: var(--surface); border-radius: 20px; box-shadow: var(--shadow); border: 1px solid var(--border); padding: 22px 20px; margin-bottom: 16px; }
+.section-card h2 { font-size: 15px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.section-card .sub { font-size: 12px; color: var(--text-muted); margin-bottom: 18px; line-height: 1.6; }
+
+/* 2-photo upload grid */
+.photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.photo-slot { position: relative; }
+.photo-slot-label { font-size: 11px; font-weight: 700; color: var(--teal); margin-bottom: 6px; display: flex; align-items: center; gap: 5px; }
+.photo-slot-sub { font-size: 10px; color: var(--text-muted); }
 
 .upload-zone {
-  border: 2px dashed var(--teal-mid);
-  border-radius: 16px;
-  background: var(--teal-light);
-  padding: 36px 20px;
-  text-align: center;
-  cursor: pointer;
-  transition: all .25s;
-  position: relative;
+  border: 2px dashed var(--teal-mid); border-radius: 14px;
+  background: var(--teal-light); padding: 0;
+  text-align: center; cursor: pointer; transition: all .25s;
+  aspect-ratio: 3/4; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 6px;
+  position: relative; overflow: hidden;
 }
-.upload-zone:hover { border-color: var(--teal); background: #daf0eb; }
-.upload-zone.drag { border-color: var(--teal); background: #cce8e2; transform: scale(1.01); }
-.upload-icon { font-size: 44px; margin-bottom: 10px; }
-.upload-text { font-size: 14px; font-weight: 600; color: var(--teal); margin-bottom: 4px; }
-.upload-sub { font-size: 12px; color: var(--text-muted); }
-#file-input { display: none; }
+.upload-zone:hover { border-color: var(--teal); background: #d6ede7; }
+.upload-zone.drag { border-color: var(--teal); transform: scale(1.02); }
+.upload-zone.has-image { border-style: solid; border-color: var(--teal); }
+.upload-zone input[type=file] { display: none; }
+.upload-zone-icon { font-size: 28px; }
+.upload-zone-text { font-size: 11px; font-weight: 600; color: var(--teal); }
+.upload-zone-hint { font-size: 10px; color: var(--text-muted); }
+.upload-zone img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+.upload-zone .remove-btn { position: absolute; top: 6px; right: 6px; background: rgba(0,0,0,.55); color: #fff; border: none; border-radius: 50%; width: 24px; height: 24px; font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 2; }
 
-.preview-wrap {
-  display: none; position: relative; margin-top: 16px;
-}
-.preview-wrap img {
-  width: 100%; max-height: 360px; object-fit: contain;
-  border-radius: 12px; border: 1px solid var(--border);
-}
-.preview-remove {
-  position: absolute; top: 8px; right: 8px;
-  background: rgba(0,0,0,.55); color: #fff;
-  border: none; border-radius: 50%;
-  width: 28px; height: 28px; font-size: 14px;
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-}
+/* shooting guide */
+.shoot-guide { background: var(--blue-light); border: 1px solid #c5d6f5; border-radius: 12px; padding: 12px 14px; margin-bottom: 16px; }
+.shoot-guide-title { font-size: 11px; font-weight: 700; color: var(--blue); margin-bottom: 8px; }
+.shoot-guide-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.shoot-guide-item { font-size: 11px; color: var(--text-mid); display: flex; align-items: flex-start; gap: 5px; line-height: 1.5; }
 
-.pose-guide {
-  background: var(--blue-light);
-  border: 1px solid #c5d6f5;
-  border-radius: 12px; padding: 14px 16px; margin-top: 16px;
-}
-.pose-guide-title {
-  font-size: 12px; font-weight: 700; color: var(--blue); margin-bottom: 8px;
-}
-.pose-guide-list {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
-}
-.pose-guide-item {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 12px; color: var(--text-mid);
-}
-
-/* profile inputs */
-.profile-row { display: flex; gap: 10px; margin-top: 16px; }
+/* profile */
+.profile-row { display: flex; gap: 10px; margin-bottom: 14px; }
 .profile-group { flex: 1; }
 .profile-group label { display: block; font-size: 11px; color: var(--text-muted); margin-bottom: 5px; }
-input, select { width: 100%; background: var(--surface2); border: 1.5px solid var(--border); border-radius: 8px; color: var(--text); font-family: inherit; font-size: 13px; padding: 9px 12px; outline: none; transition: border .2s; }
+input[type=number], select { width: 100%; background: var(--surface2); border: 1.5px solid var(--border); border-radius: 8px; color: var(--text); font-family: inherit; font-size: 13px; padding: 9px 12px; outline: none; transition: border .2s; }
 input:focus, select:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(42,127,111,.1); }
-select option { background: var(--surface); }
 
 /* concern tags */
-.concern-label { font-size: 12px; color: var(--text-muted); margin: 14px 0 8px; }
-.concern-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-.concern-tag {
-  background: var(--surface2); border: 1.5px solid var(--border);
-  border-radius: 20px; padding: 6px 14px; font-size: 12px;
-  color: var(--text-mid); cursor: pointer; transition: all .2s;
-  font-family: inherit;
-}
+.concern-label { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
+.concern-tags { display: flex; gap: 7px; flex-wrap: wrap; }
+.concern-tag { background: var(--surface2); border: 1.5px solid var(--border); border-radius: 20px; padding: 6px 13px; font-size: 12px; color: var(--text-mid); cursor: pointer; transition: all .2s; font-family: inherit; }
 .concern-tag.selected { background: var(--teal); border-color: var(--teal); color: #fff; font-weight: 600; }
 
-/* analyze btn */
-.analyze-btn {
-  width: 100%; margin-top: 20px;
-  background: linear-gradient(135deg, var(--teal), #1a6b5a);
-  color: #fff; border: none; border-radius: 12px;
-  padding: 16px; font-family: inherit; font-size: 15px; font-weight: 700;
-  cursor: pointer; transition: opacity .2s, transform .1s;
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  letter-spacing: .04em;
-}
+/* analyze button */
+.analyze-btn { width: 100%; margin-top: 18px; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); color: #fff; border: none; border-radius: 14px; padding: 16px; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer; transition: opacity .2s, transform .1s; display: flex; align-items: center; justify-content: center; gap: 10px; letter-spacing: .04em; }
 .analyze-btn:hover { opacity: .92; }
 .analyze-btn:active { transform: scale(.98); }
-.analyze-btn:disabled { opacity: .4; cursor: not-allowed; }
+.analyze-btn:disabled { opacity: .35; cursor: not-allowed; }
+.photo-count-badge { background: rgba(255,255,255,.2); border-radius: 8px; padding: 2px 10px; font-size: 12px; }
 
-/* ── Result ── */
+/* Loading */
+.loading-wrap { display: none; text-align: center; padding: 44px 20px; background: var(--surface); border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow); }
+.loading-wrap.show { display: block; }
+.loading-spinner { width: 52px; height: 52px; border-radius: 50%; border: 4px solid var(--teal-light); border-top-color: var(--teal); animation: spin .8s linear infinite; margin: 0 auto 16px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-title { font-size: 15px; font-weight: 600; color: var(--teal); margin-bottom: 6px; }
+.loading-sub { font-size: 12px; color: var(--text-muted); margin-bottom: 20px; }
+.loading-steps { display: inline-flex; flex-direction: column; gap: 8px; text-align: left; }
+.loading-step { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 8px; transition: all .3s; }
+.loading-step.active { color: var(--teal); font-weight: 700; }
+.loading-step.done { color: var(--teal-mid); }
+.step-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); flex-shrink: 0; transition: all .3s; }
+.loading-step.active .step-dot { background: var(--teal); box-shadow: 0 0 0 3px rgba(42,127,111,.2); }
+.loading-step.done .step-dot { background: var(--teal-mid); }
+
+/* Result */
 .result-section { display: none; }
 .result-section.show { display: block; }
 
-.result-header {
-  display: flex; align-items: center; gap: 12px;
-  margin-bottom: 16px; padding: 16px 20px;
-  background: var(--surface); border-radius: 16px;
-  border: 1px solid var(--border); box-shadow: var(--shadow);
-}
-.result-header-icon { font-size: 32px; }
-.result-header h2 { font-size: 17px; font-weight: 700; }
-.result-header p { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.result-header { background: linear-gradient(135deg, var(--teal-dark), var(--teal)); border-radius: 16px; padding: 20px; margin-bottom: 16px; display: flex; align-items: center; gap: 14px; }
+.result-header-icon { font-size: 36px; }
+.result-header h2 { font-size: 18px; font-weight: 700; color: #fff; }
+.result-header p { font-size: 11px; color: rgba(255,255,255,.7); margin-top: 3px; }
 
-/* score cards */
+/* Score cards */
 .score-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 16px; }
-.score-card {
-  background: var(--surface); border-radius: 14px;
-  border: 1px solid var(--border); padding: 14px 12px; text-align: center;
-  box-shadow: var(--shadow);
-}
-.score-label { font-size: 10px; color: var(--text-muted); margin-bottom: 6px; letter-spacing: .04em; }
-.score-val { font-size: 28px; font-weight: 900; line-height: 1; }
+.score-card { background: var(--surface); border-radius: 14px; border: 1px solid var(--border); padding: 14px 10px; text-align: center; box-shadow: var(--shadow); }
+.score-label { font-size: 10px; color: var(--text-muted); margin-bottom: 6px; }
+.score-val { font-size: 30px; font-weight: 900; line-height: 1; }
 .score-val.good { color: var(--teal); }
 .score-val.mid { color: var(--yellow); }
 .score-val.bad { color: var(--red); }
-.score-sub { font-size: 10px; color: var(--text-muted); margin-top: 4px; }
+.score-sub { font-size: 9px; color: var(--text-muted); margin-top: 4px; }
 
-/* result cards */
-.rcard {
-  background: var(--surface); border-radius: 16px;
-  border: 1px solid var(--border); box-shadow: var(--shadow);
-  padding: 20px; margin-bottom: 14px;
-}
+/* Result cards */
+.rcard { background: var(--surface); border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 18px; margin-bottom: 14px; }
 .rcard-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-.rcard-icon { font-size: 22px; }
-.rcard-title { font-size: 15px; font-weight: 700; }
-.rcard-tag { margin-left: auto; font-size: 10px; padding: 3px 10px; border-radius: 20px; font-weight: 600; }
-.rcard-tag.warn { background: var(--red-light); color: var(--red); }
-.rcard-tag.ok { background: var(--teal-light); color: var(--teal); }
-.rcard-tag.mid { background: var(--yellow-light); color: var(--yellow); }
+.rcard-icon { font-size: 20px; }
+.rcard-title { font-size: 14px; font-weight: 700; flex: 1; }
+.view-tag { font-size: 10px; background: var(--teal-light); color: var(--teal); padding: 2px 8px; border-radius: 10px; font-weight: 600; }
 
 .result-text { font-size: 13px; line-height: 1.85; color: var(--text-mid); white-space: pre-wrap; }
 
-/* exercise cards */
-.ex-cards { display: flex; flex-direction: column; gap: 10px; }
-.ex-card {
-  background: var(--teal-light); border-radius: 12px;
-  border: 1px solid var(--teal-mid); padding: 14px 16px;
-  display: flex; gap: 12px; align-items: flex-start;
-}
-.ex-num {
-  width: 28px; height: 28px; background: var(--teal); color: #fff;
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 700; flex-shrink: 0;
-}
-.ex-body { flex: 1; }
-.ex-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+/* Plane tabs */
+.plane-tabs { display: flex; gap: 6px; margin-bottom: 12px; }
+.plane-tab { flex: 1; padding: 8px; border-radius: 8px; border: 1.5px solid var(--border); background: var(--surface2); font-family: inherit; font-size: 12px; color: var(--text-muted); cursor: pointer; transition: all .2s; font-weight: 500; }
+.plane-tab.active { background: var(--teal); border-color: var(--teal); color: #fff; font-weight: 700; }
+.plane-content { display: none; }
+.plane-content.active { display: block; }
+
+/* Exercise cards with illustration */
+.ex-cards { display: flex; flex-direction: column; gap: 14px; }
+.ex-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
+.ex-card-top { display: flex; gap: 0; }
+.ex-illust { width: 110px; flex-shrink: 0; background: var(--teal-light); display: flex; align-items: center; justify-content: center; min-height: 130px; position: relative; }
+.ex-illust svg { width: 80px; height: 80px; }
+.ex-illust-loading { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.ex-illust-spinner { width: 24px; height: 24px; border: 3px solid var(--teal-light); border-top-color: var(--teal); border-radius: 50%; animation: spin .7s linear infinite; }
+.ex-illust-text { font-size: 9px; color: var(--teal); }
+.ex-body { flex: 1; padding: 14px 14px 14px 12px; display: flex; flex-direction: column; gap: 4px; }
+.ex-num-name { display: flex; align-items: center; gap: 8px; }
+.ex-num { width: 22px; height: 22px; background: var(--teal); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+.ex-name { font-size: 13px; font-weight: 700; }
+.ex-target { font-size: 11px; color: var(--teal); font-weight: 600; }
 .ex-desc { font-size: 12px; color: var(--text-mid); line-height: 1.6; }
-.ex-freq { font-size: 11px; color: var(--teal); font-weight: 600; margin-top: 4px; }
+.ex-freq { font-size: 11px; color: var(--teal); font-weight: 600; display: flex; align-items: center; gap: 4px; margin-top: 2px; }
+.ex-steps { padding: 0 14px 14px; border-top: 1px solid var(--border); }
+.ex-steps-title { font-size: 11px; color: var(--text-muted); font-weight: 600; margin: 10px 0 6px; letter-spacing: .05em; }
+.ex-step-list { display: flex; flex-direction: column; gap: 6px; }
+.ex-step-item { display: flex; gap: 8px; align-items: flex-start; }
+.ex-step-num { width: 18px; height: 18px; background: var(--teal-light); color: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.ex-step-text { font-size: 12px; color: var(--text-mid); line-height: 1.5; }
 
-/* loading */
-.loading-wrap {
-  display: none; text-align: center; padding: 48px 20px;
-  background: var(--surface); border-radius: 20px;
-  border: 1px solid var(--border); box-shadow: var(--shadow);
-}
-.loading-wrap.show { display: block; }
-.loading-spinner {
-  width: 52px; height: 52px; border-radius: 50%;
-  border: 4px solid var(--teal-light); border-top-color: var(--teal);
-  animation: spin .8s linear infinite; margin: 0 auto 16px;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-.loading-text { font-size: 15px; font-weight: 600; color: var(--teal); margin-bottom: 6px; }
-.loading-sub { font-size: 12px; color: var(--text-muted); }
-.loading-steps { display: flex; flex-direction: column; gap: 6px; margin-top: 16px; text-align: left; display: inline-flex; }
-.loading-step { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
-.loading-step.active { color: var(--teal); font-weight: 600; }
-.loading-step.done { color: var(--teal-mid); }
+/* Disclaimer */
+.disclaimer { background: var(--yellow-light); border: 1px solid #ddc060; border-radius: 12px; padding: 12px 14px; font-size: 11px; color: #7a6010; line-height: 1.7; margin-top: 14px; }
 
-/* disclaimer */
-.disclaimer {
-  background: var(--yellow-light); border: 1px solid #e8d080;
-  border-radius: 12px; padding: 14px 16px;
-  font-size: 11px; color: #7a6010; line-height: 1.7; margin-top: 16px;
-}
-.disclaimer strong { color: var(--orange); }
-
-/* retry btn */
-.retry-btn {
-  width: 100%; margin-top: 16px;
-  background: var(--surface2); color: var(--text-mid);
-  border: 1.5px solid var(--border); border-radius: 12px;
-  padding: 13px; font-family: inherit; font-size: 14px; font-weight: 600;
-  cursor: pointer; transition: all .2s;
-}
+/* Retry */
+.retry-btn { width: 100%; margin-top: 14px; background: var(--surface2); color: var(--text-mid); border: 1.5px solid var(--border); border-radius: 12px; padding: 13px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
 .retry-btn:hover { border-color: var(--teal); color: var(--teal); }
+
+/* PWA banners */
+#install-banner { display: none; position: fixed; bottom: 20px; left: 16px; right: 16px; background: #1a3a34; border: 1px solid rgba(255,255,255,.15); border-radius: 16px; padding: 14px 16px; align-items: center; gap: 12px; z-index: 500; box-shadow: 0 8px 32px rgba(0,0,0,.3); animation: bannerIn .4s ease; }
+@keyframes bannerIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.install-do { background: var(--teal); color: #fff; border: none; border-radius: 8px; padding: 8px 14px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
+.install-x { background: transparent; border: none; color: rgba(255,255,255,.5); font-size: 18px; cursor: pointer; flex-shrink: 0; padding: 4px; }
+#ios-banner { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #1a3a34; border-top: 1px solid rgba(255,255,255,.15); padding: 16px 20px 36px; flex-direction: column; gap: 10px; z-index: 500; animation: slideUpB .4s ease; }
+@keyframes slideUpB { from { transform: translateY(100%); } to { transform: translateY(0); } }
+.ios-title { color: #fff; font-size: 14px; font-weight: 700; }
+.ios-steps { color: rgba(255,255,255,.8); font-size: 12px; line-height: 2; }
+.ios-steps span { color: #5dd4c0; font-weight: 600; }
+.ios-close { position: absolute; top: 12px; right: 16px; background: rgba(255,255,255,.15); border: none; color: #fff; border-radius: 50%; width: 28px; height: 28px; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+#pwa-toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--teal); color: #fff; font-size: 13px; font-weight: 600; padding: 10px 24px; border-radius: 24px; opacity: 0; transition: all .3s; pointer-events: none; z-index: 600; white-space: nowrap; }
+#pwa-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 </style>
-
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="らくトレ">
-<meta name="theme-color" content="#2a7f6f">
-<meta name="description" content="PT監修・AIが姿勢を分析して自主トレメニューを提案するアプリ">
-<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAFKUlEQVR4nO3dy3HUQBRG4R4Ve4olKeAwTD48EvA4AYPzgTBwCl66nAELuTSyRq/W3y1133u+FQXlGXn61G2pLORTyOz24Zz7LTDj789z1tc/5XhRoilTjphSBkQ3tUhYUpqASKdGSTJSAyKd2okZbQ+IdCzZnNGWgEjHqg0ZNbFfQD2GbVjcuICox7zYJV67hZGONyu3s1UTiHocWrnoyxPIYT1/ftxN/dPXX/d7HsnhFufQQkCu6pnp5pqfkuYbmgvITz1R6fQ5yWimoQ/7HUWRNqfT/3InGY2aPIn2MH7EepK/TrFmYhjfwszXk2nJbY+i0Y1sZAJRT4GvXILRMKJ/lFG73Gtsu6Frw4DMjx8orvPwNYH2GQ+uhtC7gGyPnz3X1XBDg0h8TSAkdwmI8VP7O+6mnwoTCJK3gBg/lt53B10wTCBICAiSJrB/2X33rNpsmECQEBAkBARJY/sECFndPpyZQJAQECQEBAkBQWI/oGNvdLd9m33wEBCyIiBIXAR01D5ifv8KTgJCPl4C2n8YeBg/wU9AyMRRQHuOBCfjJ7gKKOy1rn7qCd4CQnLuAso9HlyNn+AwoJBzjb3VE9w+4q5d6YR3vDtMp+VxAnVSrbrbeoLbCdQRR5HndFreA2ptyIh0WgR00TXBk+rXI6ARVLKe2YAK/D/FJrs0GFCB6bRMPtbe9WU8dNYCKnb8dMo/wijWAsLOCAgSAoKEgCAhIEgICJLm+fXl6GNArZ5fX5hAkBAQJAQESRNC4DQIG7TZMIEgISBI3u4Hen59+fzx07GHEuSfVFd0q03t32l32nP6cvet/dPhARm7zyG3YxvqAmqu/+oQ1BPrwE+snwrnQJC8C4jreSwaRMIEgmQYEEMIM67zYAJBMhIQQwijRsMYn0A0hIGpJCa3MBpCZyYGzoEgmQuIIYSwlMHCBKIh5xYDWN7CaMitNUu/6hyIhhxauehrnw/Uvtzht3xgB1HzIu4qjFFkXuwSR1/G05BhGxZ3yyPu2M7s2TwXtj8jkYxsELcU9SGbZFSvJGcjaZ7SSkZ1SXgim/Ixv91hUVKZclwAZXlOdP9AielYua+asz9onMv+fEr4bLmdAxICgoSAICEgSAgIEgKChIAgISBICAgSAoKEgCApJaCb8/ejD6EyhXxipQQUUnwihXymiyx9p2X92u9yPpfczHynBU0g1IiAICEgSAgIEgKChIAgISBICAgSAoKEgCAhIEgICBICgoSAILEWUPm3SZR/hFGsBYSdXX7ttzH/zr+PPoQhY7OnZTagvi6mm/P3/p9rfJfS2N/CpkZR2hG1z7sUyH5AyIqAICEgSAgIEgKChIAgISBICAgSAoKEgCAhIEgICBICgoSAICEgSAgIEgKChIAgISBICAgSAoKEgCAhIEgICBICgoSAICEgSAgIEvsBTT0fI+1zM/Z5lwI1T/ePRx9DdtermGNd93mXojzdP55CCB4eEYQcnu4f7W9hyIqAIGlCCB5Og5Bcmw0TCBICguQtIHYxROmCYQJBcgmIIYSV+qkwgSB5FxBDCIsGkTCBIBkGxBDCjOs8mECQjATEEMKo0TDGJxANYWAqicktjIbQmYmBcyBI5gJiCCEsZbAwgWjIucUAlrcwGnJrzdKvOgeiIYdWLvop6kX5/xseRM2LuKswRpF5sUscfRlPQ4ZtWNy4LayP7cySzXNhe0AtMqqduKWoAbXIqEZJzkbSBNQio1okPJFNGVCHksqU4wIoS0B9xHSs3FfN/wEzArC7BzPV8gAAAABJRU5ErkJggg==">
-<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIlx1MzA4OVx1MzA0Zlx1MzBjOFx1MzBlYyBBSVx1NTlmZlx1NTJlMlx1NTIwNlx1Njc5MCIsICJzaG9ydF9uYW1lIjogIlx1MzA4OVx1MzA0Zlx1MzBjOFx1MzBlYyIsICJkZXNjcmlwdGlvbiI6ICJQVFx1NzZlM1x1NGZlZVx1MzBmYkFJXHU1OWZmXHU1MmUyXHU1MjA2XHU2NzkwXHVmZjA2XHU4MWVhXHU0ZTNiXHUzMGM4XHUzMGVjXHU2M2QwXHU2ODQ4XHUzMGEyXHUzMGQ3XHUzMGVhIiwgInN0YXJ0X3VybCI6ICIuLyIsICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLCAiYmFja2dyb3VuZF9jb2xvciI6ICIjMmE3ZjZmIiwgInRoZW1lX2NvbG9yIjogIiMyYTdmNmYiLCAib3JpZW50YXRpb24iOiAicG9ydHJhaXQtcHJpbWFyeSIsICJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQU1BQUFBREFDQUlBQUFEZHZ2dFFBQUFGS1VsRVFWUjRuTzNkeTNIVVFCUkc0UjRWZTRvbEtlQXdURDQ4RXZBNEFZUHpnVEJ3Q2w2Nm5BRUx1VFN5UnEvVzN5MTEzM3UrRlFYbEdYbjYxRzJwTE9SVHlPejI0Wno3TFREajc4OXoxdGMvNVhoUm9pbFRqcGhTQmtRM3RVaFlVcHFBU0tkR1NUSlNBeUtkMm9rWmJRK0lkQ3pabk5HV2dFakhxZzBaTmJGZlFEMkdiVmpjdUlDb3g3ellKVjY3aFpHT055dTNzMVVUaUhvY1dybm95eFBJWVQxL2Z0eE4vZFBYWC9kN0hzbmhGdWZRUWtDdTZwbnA1cHFma3VZYm1ndklUejFSNmZRNXlXaW1vUS83SFVXUk5xZlQvM0luR1kyYVBJbjJNSDdFZXBLL1RyRm1ZaGpmd3N6WGsybkpiWStpMFkxc1pBSlJUNEd2WElMUk1LSi9sRkc3M0d0c3U2RnJ3NERNang4b3J2UHdOWUgyR1ErdWh0QzdnR3lQbnozWDFYQkRnMGg4VFNBa2R3bUk4VlA3Tys2bW53b1RDSkszZ0JnL2x0NTNCMTB3VENCSUNBaVNKckIvMlgzM3JOcHNtRUNRRUJBa0JBUkpZL3NFQ0ZuZFBweVpRSkFRRUNRRUJBa0JRV0kvb0dOdmRMZDltMzN3RUJDeUlpQklYQVIwMUQ1aWZ2OEtUZ0pDUGw0QzJuOFllQmcvd1U5QXlNUlJRSHVPQkNmako3Z0tLT3kxcm43cUNkNENRbkx1QXNvOUhseU5uK0F3b0pCempiM1ZFOXcrNHE1ZDZZUjN2RHRNcCtWeEFuVlNyYnJiZW9MYkNkUVJSNUhuZEZyZUEycHR5SWgwV2dSMDBUWEJrK3JYSTZBUlZMS2UyWUFLL0QvRkpyczBHRkNCNmJSTVB0YmU5V1U4ZE5ZQ0tuYjhkTW8vd2lqV0FzTE9DQWdTQW9LRWdDQWhJRWdJQ0pMbStmWGw2R05Bclo1Zlg1aEFrQkFRSkFRRVNSTkM0RFFJRzdUWk1JRWdJU0JJM3U0SGVuNTkrZnp4MDdHSEV1U2ZWRmQwcTAzdDMybDMyblA2Y3ZldC9kUGhBUm03enlHM1l4dnFBbXF1LytvUTFCUHJ3RStzbndyblFKQzhDNGpyZVN3YVJNSUVnbVFZRUVNSU02N3pZQUpCTWhJUVF3aWpSc01ZbjBBMGhJR3BKQ2EzTUJwQ1p5WUd6b0VnbVF1SUlZU3dsTUhDQktJaDV4WURXTjdDYU1pdE5VdS82aHlJaGh4YXVlaHJudy9VdnR6aHQzeGdCMUh6SXU0cWpGRmtYdXdTUjEvRzA1QmhHeFozeXlQdTJNN3MyVHdYdGo4amtZeHNFTGNVOVNHYlpGU3ZKR2NqYVo3U1NrWjFTWGdpbS9JeHY5MWhVVktaY2x3QVpYbE9kUDlBaWVsWXVhK2Fzejlvbk12K2ZFcjRiTG1kQXhJQ2dvU0FJQ0VnU0FnSUVnS0NoSUFnSVNCSUNBZ1NBb0tFZ0NBcEphQ2I4L2VqRDZFeWhYeGlwUVFVVW53aWhYeW1peXg5cDJYOTJ1OXlQcGZjekh5bkJVMGcxSWlBSUNFZ1NBZ0lFZ0tDaElBZ0lTQklDQWdTQW9LRWdDQWhJRWdJQ0JJQ2dvU0FJTEVXVVBtM1NaUi9oRkdzQllTZFhYN3R0ekgvenIrUFBvUWhZN09uWlRhZ3ZpNm1tL1AzL3A5cmZKZlMyTi9DcGtaUjJoRzF6N3NVeUg1QXlJcUFJQ0VnU0FnSUVnS0NoSUFnSVNCSUNBZ1NBb0tFZ0NBaElFZ0lDQklDZ29TQUlDRWdTQWdJRWdLQ2hJQWdJU0JJQ0FnU0FvS0VnQ0FoSUVnSUNCSUNnb1NBSUNFZ1NBZ0lFdnNCVFQwZkkrMXpNL1o1bHdJMVQvZVBSeDlEZHRlcm1HTmQ5M21Yb2p6ZFA1NUNDQjRlRVlRY251NGY3VzloeUlxQUlHbENDQjVPZzVCY213MFRDQklDZ3VRdElIWXhST21DWVFKQmNnbUlJWVNWK3Frd2dTQjVGeEJEQ0lzR2tUQ0JJQmtHeEJEQ2pPczhtRUNRakFURUVNS28wVERHSnhBTllXQXFpY2t0akliUW1ZbUJjeUJJNWdKaUNDRXNaYkF3Z1dqSXVjVUFscmN3R25KcnpkS3ZPZ2VpSVlkV0x2b3A2a1g1L3hzZVJNMkx1S3N3UnBGNXNVc2NmUmxQUTRadFdOeTRMYXlQN2N5U3pYTmhlMEF0TXFxZHVLV29BYlhJcUVaSnprYlNCTlFpbzFva1BKRk5HVkNIa3NxVTR3SW9TMEI5eEhTczNGZk4vd0V6QXJDN0J6UFY4Z0FBQUFCSlJVNUVya0pnZ2c9PSIsICJzaXplcyI6ICIxOTJ4MTkyIiwgInR5cGUiOiAiaW1hZ2UvcG5nIn0sIHsic3JjIjogImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBZ0FBQUFJQUNBSUFBQUI3R2tPdEFBQU95a2xFUVZSNG5PM2R6WlVjNWNHRzRaR085aHlXcENEQ2dId0VUbUNrQk1Ea2c4TXdLYkRra0lFWGhZdG1wcWQvcXQvLzU3bzIzOEwrck9xUzlOejlWcytNM2ozeHluYy9mZTU5Q1VCaC8vblg1OTZYTUp4M3ZTK2dNMXNQeWNLckVCY0Fpdys4SmEwSEVRRXcrc0M5RW1Ld2NnRHNQdkM0aFV1d1dnQ01QbERQWWpGWUp3Q21IMmhqbVF4TUh3QzdEL1F5ZXdrbURvRHBCMFl3YndhbURJRHBCMFl6WXdabUNvRGRCOFkzVVFubUNJRHBCK1l5UlFiZTk3NkE2NncvTUowcGhtdm9FOEFVZHhEZ2dwR1BBb01Hd1BRREt4a3pBOE1Gd1BRRHF4b3RBMk45Qm1EOWdZV05ObkdqbkFCR3V5OEE5UXh5RkJqaUJHRDlnU2lEakY3L0FBeHlJd0JhR21INmVqNENHdUgxQS9UVjhYRlF0eE9BOVFkNDZqcUdmUUpnL1FGMnZTYXg5U01nMHcvd2xzYVBnNXFlQUt3L3dBV05SN0pkQUt3L3dGVXRwN0pSQUt3L3dJMmFEV2FMQUZoL2dMdTBtYzNxQWJEK0FBYzBHTSs2WHdWay9SbkhyejgrMy81Zi92N25ML1d1Qkc1WDlldUNLZ2JBK3RQWFhZdC9tUjdRVWIwRzFBcUE5YWVMZ3FQL0ZqR2d2VW9OcUJJQTYwOWpEWGIvTlNXZ3BSb05LQjhBNjA5TFhhYi9sQXpRVFBFR0ZBNkE5YWVON3J2L21oTFFRTmtHbEF5QTlhZUJBYWYvbEF4UVc4RUdGUHMrQU90UEE0T3YvOU1NVjhqc0NvNXRtUk9BOWFlMjZZYlZVWUNxaXB3RFBqeitQd0ZWVFRmOW0rMnlaWUNSRlhnRTVPMC85VXk2L3J2WnI1OWhGUm5lUndOZy9hbG5qZlZjNDFVd29NZm45NkhQQUt3L2xTdzVtaDRIVWNNakh3WjArMGZoNFMxTHJ2L1R1cStMZVIwUGdMZi8xTEQyU3E3OTZ1amlrU2srR0FEclR3MEorNWp3R21uczhDQWZDWUQxcDRhY1pjeDVwVFJ6YkpaOUJzQVEwall4N2ZVeXByc0Q0TzAveFdXdVllYXJwcDRENDN4ZkFLdy94U1h2WVBKcnA0WjdKOW9qSUhxeWdPNEFIZDBSQUcvL0tjdjJiZHdIQ3JwcnFKMEFBRUxkR2dCdi95bkwyOTVUN2dZRjNUN1hUZ0IwWU85ZWMwOW83NllBZVB0UFFaYnVMZTRNcGR3NDJ0Y0RZUDBCcG5QTGRIc0VSRlBlNUY3bS90RFNsUUI0K3c4d3Fhc0Q3Z1JBTzk3ZTNzSmRvaGtCb0JHN2RqdjNpall1QmNEekg0Q3BYWjV4SndCYThKYjJYdTRZRGJ3WkFHLy9BUlp3WWN5ZEFBQkNuUStBdC84VTVHbkdNZTRicGJ3MTZVNEFBS0VFZ0xxOGpYMkV1MGRWWndMZytRL0FZczRPdXhNQVFLaVhBZkQybjRJOHdYaWNlMGdwcitmZENRQWdsQUFBaEJJQWdGRC9DSUFQQUNqSXcrdFMzRWxLZVRIeVRnQUFvUVFBSU5UZkFmRDhCMkI1cDFQdkJBQVFTZ0Nvd3VlV1pibWYxQ0FBQUtIK0NvQVBBQUJDN0lQdkJBQVFTZ0FBUWdrQVFDZ0JBQWoxL3NrbndBQmh0dGwzQWdBSUpRQUFvUVFBSUpRQUFJUVNBSUJRQWdBUTZyMnZBUVVJOU4xUG41MEFxT0w3bjcvMHZvU2x1Si9VSUFBQW9RUUFJSlFBQUlRU0FJQlFBa0F0UHJjc3haMmtFZ0VBQ0NVQUFLRUVBQ0NVQUZDUmg5ZVBjdytwUndBQVFna0FRQ2dCb0M1UE1CN2g3bEdWQUFDRUVnQ3E4emIyR1BlTjJnUUFJSlFBQUlRU0FGcndOT05lN2hnTkNBQkFLQUdnRVc5cGIrZGUwWVlBMEk1ZHU0VzdSRE1DQUJCS0FHaksyOXZMM0I5YUVnQ0FVQUpBYTk3a3ZzV2RvVEVCb0FOTDk1cDdRbnNDUUIvMjdwUzdRUmNDQUJCS0FPakcyOTZOKzBBdkFrQlB0czhkb0NNQm9MUGtCVXgrN1l4QUFPZ3Zjd2N6WHpWREVRQ0drTGFHYWErWE1Ra0FvOGpaeEp4WHl1QUVnSUVrTEdQQ2EyUVdBc0JZMXQ3SHRWOGQweEVBaHJQcVNxNzZ1cGpYaDk0WEFHZHNXL25yajgrOUw2UU0wOCtZbkFBWTF4cTd1Y2FyWUVrQ3dOQm1YOC9acjUrMWVRVEU2Q1o5SEdUNkdaOEFNSWVKTW1ENm1ZVkhRTXhrL0cwZC93cGg1d1RBWklZOUNwaCtwaU1BVEdsZjIrNGxzUHZNU3dDWVc4Y0RnZWxuZGdMQUNsb2VDT3creXhBQWxuSzZ6Z1ZqWVBSWmtnQ3dyQmVyZlZjUExENEpCSUFVTmgxZUVBRHUwUDFMYnJpRjFIRWpBZUFtcG44aTIyK1dESENWN3dRR0NDVUFYT2Z0LzR6OHJuR1ZBQUNFRWdDQVVBSUFFRW9BQUVJSkFFQW9BUUFJSlFBQW9RUUFJSlFBQUlRU0FJQlFBZ0FRU2dBQVFna0FRQ2dCQUFnbEFBQ2hCQUFnbEFBQWhCSUFnRkR2Zi8vemo5N1hBRUJydi8vNWh4TUFRQ2dCQUFnbEFBQ2hCQUFnbEFBQWhCSUFnRkR2bjU2ZWZDVW9RSlJ0OXAwQUFFSUpBRUFvQVFBSUpRQUFvZjRLZ00rQkFVTHNnKzhFQUJCS0FBQkNDUUJBcUw4RDRHTUFnT1dkVHIwVEFFQW9BUUFJOVk4QWVBb0VzTEFYSSs4RUFCQktBQUJDQ1FCQXFKY0I4REVBd0pKZXo3c1RBRUNvTXdGd0NBQll6TmxoZHdJQUNQV2g5d1VFK2ZYSDU5NlhjTVQzUDMvcGZRa2M1MDhkRjd6NytQenA3SC93elZkZk43NlV0VTM2OXhCNjBZQ0MzbnF3N3hGUUM5WWY3dVZ2VFFOdkJzQkh3UUFMdUREbVRnQUFvUzRGd0NFQVlHcVhaOXdKQUNDVUFBQ0V1aElBVDRFQUpuVjF3SjBBQUVKZEQ0QkRBTUIwYnBudW0wNEFHZ0F3a1J0SDJ5TWdnRkMzQnNBaEFHQUt0OCsxRXdCQXFEc0M0QkFBTUxpN2h0b0pBQ0RVZlFGd0NBQVkxcjBUZmZjSlFBTUFCblJnbkQwQ0FnaDFKQUFPQVFCRE9UYkxCMDhBR2dBd2lNT0RmUHdSa0FZQWRQZklGUHNNQUNEVVF3RndDQURvNk1FUmZ2UUVvQUVBWFR3K3Z3VWVBV2tBUUdORmh0ZG5BQUNoeWdUQUlRQ2dtVktUVyt3RW9BRUFEUlFjMjVLUGdEUUFvS3F5TTF2NE13QU5BS2lrK01DVy94QllBd0NLcXpHdFZiNEtTQU1BQ3FvMHFyVytERlFEQUlxb042Y1Z2dzlBQXdBZVZIVkk2MzRqbUFZQUhGWjdRcXQvSjdBR0FCelFZRHhiL0NnSURRQzRTNXZaYlBTemdEUUE0RWJOQnJQZEQ0UFRBSUNyV2s1bDA1OEdxZ0VBRnpRZXlROHRmN0duLzcrOGI3NzZ1dkd2Q3pDeUx1K1ArL3g3QUk0Q0FMdGVrOWp0SDRUUkFJQ25ybVBZK2hIUUtZK0RnR1RkM3dmMy95Y2h1OThDZ1BaR21MNytBWGdhNDBZQU5EUEk2UFY4QkhUSzR5QWd3U0RUdnhuaUJMQWI2dFlBbERYYXhJMXlBdGc1Q2dEckdXMzZOOE1GWUNNRHdCckduUDdOb0FIWXlBQXdyNUduZnpQV1p3Qm5qWDhUQVY2WVlyaUdQZ0hzSEFXQVdVd3gvWnM1QXJEWmI2c1NBS09aYVBkM013Vmc1MEFBakdQRzZkOU1HWUNOREFCOXpUdjltNGtEc1BGY0NHaHM5dDNmVFIrQW5RTUJVTnN5MDc5Wkp3Q2IwOThlTVFBZXQ5am9uMW90QUtjOEhRSU9XM2ozZHlzSFlPZFlBTndpWWZSUFJRVGcxSXZmWUQyQVpHbUwvMEpjQUY0NCs5dXZDckNlOEswL0t6MEFaL21EQWlQd043RzJDWDRZSEFBMUNBQkFLQUVBQ0NVQUFLRUVBQ0NVQUFDRUVnQ0FVQUlBRUVvQUFFSUpBRUFvQVFBSUpRQUFvUVFBSUpRQUFJUVNBSUJRQWdBUVNnQUFRZ2tBUUNnQkFBZ2xBQUNoQkFBZ2xBQUFoQklBZ0ZBQ0FCQktBQUJDQ1FCQUtBRUFDQ1VBQUtFRUFDQ1VBQUNFRWdDQVVBSUFFRW9BQUVJSkFFQW9BUUFJSlFBdGZQdjVoOTZYQUpQeHQ2WUJBV2hrM2ovTjgxNDU4Lzdlelh2bGMvblErd0tDK0ROTmUvN1VjWUVUQUVBb0FRQUlKUUFBb1FRQUlKUUFBSVFTQUlCUUFnQVFTZ0FBUWdrQVFDZ0JBQWdsQUFDaEJBQWdsQUFBaEJJQWdGQUNBQkJLQUFCQ0NRQkFLQUVBQ0NVQUFLRUVBQ0NVQUFDRUVnQ0FVQUlBRUVvQUFFSUpBRUFvQVFBSUpRQUFvUVFBSUpRQUFJUVNBSUJRQWdBUVNnQUFRZ2tBUUNnQkFBZ2xBQUNoQkFBZ2xBQUFoQklBZ0ZBQ0FCQktBQUJDQ1FCQUtBRUFDQ1VBQUtFRWdPdSsvZnhENzB2Z2JuN1h1RW9BQUVLOSsvajhxZmMxTUkzL2Z2NTM3MHZnT3UvOXVaRUFVTkd4WUN5OFgyNElRL0VJaUZvT0h4ZFdQV2U0SVl4R0FBQkNDUUJBS0FFQUNDVUFBS0VFQUNDVUFBQ0VFZ0NBVUFJQUVFb0FBRUlKQUVBb0FRQUlKUUFBb1FRQUlKUUFBSVFTQUlCUUFnQVFTZ0FBUWdrQVFDZ0JBQWdsQUFDaEJBQWdsQUFBaEJJQWdGQUNBQkJLQUFCQ0NRQkFLQUVBQ0NVQUFLRUVBQ0NVQUFDRUVnQ0FVQUlBRUVvQUFFSUpBRUFvQVFBSUpRQUFvUVFBSUpRQUFJUVNBSUJRQWdBUVNnQUFRZ2tBUUNnQkFBZ2xBQUNoQkFBZ2xBQUFoQklBZ0ZBQ0FCQktBQUJDQ1FCQUtBRUFDQ1VBQUtFRUFDQ1VBQUNFRWdDQVVBSUFFRW9BQUVJSkFFQW9BUUFJSlFBQW9RUUFJSlFBQUlRU0FJQlFBZ0FRU2dBQVFna0FRQ2dCQUFnbEFBQ2hCQUFnbEFBQWhCSUFnRkFDQUJCS0FBQkNDUUJBS0FFQUNDVUFBS0hlLy9ibGw5N1hBRUJydjMzNXhRa0FJSlFBQUlRU0FJQlFBZ0FRU2dDbzVkdlBQelQrZnh5Y0c4Sm9CSUNLRGl6WDJtUG5oakNVZDl2LytmajhxZTkxQU5ETTlnMEFUZ0FBb1FRQUlKUUFBSVFTQUlCUWZ3WEFUd1FDQ0xFUHZoTUFRQ2dCQUFnbEFBQ2gvZzZBandFQWxuYzY5VTRBQUtFRUFDRFVQd0xnS1JEQXdsNk12Qk1BUUNnQkFBZ2xBQUNoWGdiQXh3QUFTM285NzA0QUFLSE9CTUFoQUdBeFo0ZmRDUUFnbEFBQWhEb2ZBRStCQUpieDFxUTdBUUNFZWpNQURnRUFDN2d3NWs0QUFLRXVCY0FoQUdCcWwyZmNDUUFnbEFBQWhMb1NBRStCQUNaMWRjQ2RBQUJDWFErQVF3REFkRzZaN3B0T0FCb0FNSkViUjlzaklJQlF0d2JBSVFCZ0NyZlB0Uk1BUUtnN0F1QVFBREM0dTRiYUNRQWcxSDBCY0FnQUdOYTlFMzMzQ1VBREFBWjBZSnc5QWdJSWRTUUFEZ0VBUXprMnl3ZFBBQm9BTUlqRGczejhFWkFHQUhUM3lCVDdEQUFnMUVNQmNBZ0E2T2pCRVg3MEJLQUJBRjA4UHI4RkhnRnBBRUJqUlliWFp3QUFvY29Fd0NFQW9KbFNrMXZzQktBQkFBMFVITnVTajRBMEFLQ3Fzak5iK0RNQURRQ29wUGpBbHY4UVdBTUFpcXN4clZXK0NrZ0RBQXFxTktxMXZneFVBd0NLcURlbkZiOFBRQU1BSGxSMVNPdCtJNWdHQUJ4V2UwS3JmeWV3QmdBYzBHQThXL3dvQ0EwQXVFdWIyV3owczRBMEFPQkd6UWF6M1ErRDB3Q0FxMXBPWmRPZkJxb0JBQmMwSHNsM0xYK3gzY2ZuVDExK1hZQXhkWGwvM09mZkEzQVVBTmoxbXNSdS95Q01CZ0E4ZFIzRFBvK0FUbmtjQkdUcS9qNjQvejhKMmYwV0FMUTN3dlQxRDhEVEdEY0NvSmxCUnEvL0k2QlRIZ2NCYXh0aytqZERuQUIyUTkwYWdMSkdtN2l4VGdBN1J3RmdKYU5OLzJiUUFHeGtBSmpkbU5PL0dUb0FHeGtBWmpUeTlHL0crZ3pnclBGdklzQUxVd3pYQkNlQW5hTUFNTDRwcG44elV3QjJTZ0NNWnFMZDMwMFpnSTBNQUNPWWNmbzNFd2RnSXdOQUwvTk8vMmI2QU95VUFHaGo5dDNmclJPQWpRd0E5U3d6L1p2VkFuQktESURITFRiNnAxWU93RTRKZ0hzdHZQdTdpQUNjRWdQZ0xRbWpmeW91QUMvb0FTUkxXL3dYMGdOd2xpckFlc0szL3F6L0FSeVg4QWYwMzRYRUFBQUFBRWxGVGtTdVFtQ0MiLCAic2l6ZXMiOiAiNTEyeDUxMiIsICJ0eXBlIjogImltYWdlL3BuZyIsICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSJ9XX0=">
-<style>
-#install-banner {
-  display: none; position: fixed; bottom: 80px; left: 16px; right: 16px;
-  background: #1a3a34; border: 1px solid rgba(255,255,255,.15);
-  border-radius: 16px; padding: 14px 16px;
-  align-items: center; gap: 12px; z-index: 500;
-  box-shadow: 0 8px 32px rgba(0,0,0,.3); animation: bannerIn .4s ease;
-}
-@keyframes bannerIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-.install-icon { font-size: 28px; flex-shrink: 0; }
-.install-text { flex: 1; }
-.install-text strong { display: block; color: #fff; font-size: 13px; margin-bottom: 2px; }
-.install-text span { color: rgba(255,255,255,.65); font-size: 11px; }
-.install-do { background: #2a7f6f; color: #fff; border: none; border-radius: 8px; padding: 8px 14px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
-.install-x { background: transparent; border: none; color: rgba(255,255,255,.5); font-size: 18px; cursor: pointer; flex-shrink: 0; padding: 4px; }
-#ios-banner {
-  display: none; position: fixed; bottom: 0; left: 0; right: 0;
-  background: #1a3a34; border-top: 1px solid rgba(255,255,255,.15);
-  padding: 16px 20px 36px; flex-direction: column; gap: 10px; z-index: 500;
-  animation: slideUpB .4s ease;
-}
-@keyframes slideUpB { from { transform: translateY(100%); } to { transform: translateY(0); } }
-.ios-title { color: #fff; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
-.ios-steps { color: rgba(255,255,255,.8); font-size: 12px; line-height: 2; }
-.ios-steps span { color: #5dd4c0; font-weight: 600; }
-.ios-close { position: absolute; top: 12px; right: 16px; background: rgba(255,255,255,.15); border: none; color: #fff; border-radius: 50%; width: 28px; height: 28px; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-#pwa-toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px); background: #2a7f6f; color: #fff; font-size: 13px; font-weight: 600; padding: 10px 24px; border-radius: 24px; opacity: 0; transition: all .3s; pointer-events: none; z-index: 600; white-space: nowrap; }
-#pwa-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-</style>
 </head>
 <body>
 
-
+<!-- PWA banners -->
 <div id="install-banner">
-  <div class="install-icon">📱</div>
-  <div class="install-text">
-    <strong>ホーム画面に追加する</strong>
-    <span>アプリとして快適に使えます</span>
+  <div style="font-size:26px;flex-shrink:0">📱</div>
+  <div style="flex:1">
+    <strong style="display:block;color:#fff;font-size:13px;margin-bottom:2px">ホーム画面に追加する</strong>
+    <span style="color:rgba(255,255,255,.65);font-size:11px">アプリとして快適に使えます</span>
   </div>
   <button class="install-do" id="install-btn">追加する</button>
   <button class="install-x" id="dismiss-btn">✕</button>
@@ -343,59 +233,73 @@ select option { background: var(--surface); }
 </div>
 <div id="pwa-toast"></div>
 
+<!-- Header -->
 <div class="header">
   <div class="header-inner">
-    <div class="logo">らくトレ <span>AI姿勢分析</span></div>
+    <div class="logo">らくトレ <span class="logo-ver">v2</span></div>
     <div class="pt-badge">👨‍⚕️ PT監修</div>
   </div>
 </div>
 
+<!-- Hero -->
 <div class="hero">
-  <div class="hero-tag">📸 写真を撮るだけ</div>
-  <h1>AI が姿勢を分析して<br>あなた専用の体操を提案</h1>
-  <p>理学療法士の視点でAIが姿勢・筋力バランスを評価<br>弱い筋肉・気をつけるべき点・自主トレメニューを提案します</p>
+  <div class="hero-tag">📸 2方向撮影で精度アップ</div>
+  <h1>正面＋側面から<br>AIが精密姿勢分析</h1>
+  <p>前額面・矢状面の2方向で評価精度が大幅向上<br>弱化筋・リスク・体操メニューをAIが提案</p>
   <div class="hero-steps">
-    <div class="hero-step">📸 写真を撮る</div>
+    <div class="hero-step">📸 2枚撮影</div>
     <div class="hero-arrow">→</div>
-    <div class="hero-step">🤖 AIが分析</div>
+    <div class="hero-step">🤖 2方向分析</div>
     <div class="hero-arrow">→</div>
-    <div class="hero-step">🏋️ メニュー提案</div>
+    <div class="hero-step">🎨 図解付き提案</div>
   </div>
 </div>
 
 <div class="main">
 
   <!-- Upload Card -->
-  <div class="upload-card">
-    <h2>📸 姿勢写真をアップロード</h2>
-    <div class="sub">正面または側面から撮影した全身または上半身の写真をアップロードしてください。服を着たままで構いません。</div>
+  <div class="section-card" id="upload-section">
+    <h2>📸 姿勢写真（2方向）</h2>
+    <div class="sub">正面と側面の2枚で分析精度が大幅に向上します。どちらか1枚でも分析できます。</div>
 
-    <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()" ondragover="onDrag(event)" ondragleave="offDrag(event)" ondrop="onDrop(event)">
-      <div class="upload-icon">🖼️</div>
-      <div class="upload-text">写真をタップして選択</div>
-      <div class="upload-sub">またはここにドラッグ＆ドロップ<br>JPG / PNG 対応</div>
-      <input type="file" id="file-input" accept="image/*" onchange="onFileSelect(event)">
+    <div class="photo-grid">
+      <!-- 正面 -->
+      <div class="photo-slot">
+        <div class="photo-slot-label">🔵 正面（前額面）<span class="photo-slot-sub"> 必須</span></div>
+        <div class="upload-zone" id="zone-front" onclick="triggerFile('front')" ondragover="onDrag(event,'front')" ondragleave="offDrag('front')" ondrop="onDrop(event,'front')">
+          <input type="file" id="file-front" accept="image/*" onchange="onFileSelect(event,'front')">
+          <div class="upload-zone-icon">🧍</div>
+          <div class="upload-zone-text">正面から撮影</div>
+          <div class="upload-zone-hint">肩・骨盤の左右差を評価</div>
+        </div>
+      </div>
+      <!-- 側面 -->
+      <div class="photo-slot">
+        <div class="photo-slot-label">🟢 側面（矢状面）<span class="photo-slot-sub"> 推奨</span></div>
+        <div class="upload-zone" id="zone-side" onclick="triggerFile('side')" ondragover="onDrag(event,'side')" ondragleave="offDrag('side')" ondrop="onDrop(event,'side')">
+          <input type="file" id="file-side" accept="image/*" onchange="onFileSelect(event,'side')">
+          <div class="upload-zone-icon">🚶</div>
+          <div class="upload-zone-text">側面から撮影</div>
+          <div class="upload-zone-hint">猫背・骨盤傾斜を評価</div>
+        </div>
+      </div>
     </div>
 
-    <div class="preview-wrap" id="preview-wrap">
-      <img id="preview-img" src="" alt="プレビュー">
-      <button class="preview-remove" onclick="removeImage()">✕</button>
-    </div>
-
-    <div class="pose-guide">
-      <div class="pose-guide-title">📏 撮影のポイント（より正確な分析のために）</div>
-      <div class="pose-guide-list">
-        <div class="pose-guide-item">✅ 全身が写るように</div>
-        <div class="pose-guide-item">✅ 明るい場所で撮影</div>
-        <div class="pose-guide-item">✅ 正面か真横から</div>
-        <div class="pose-guide-item">✅ 自然な立ち姿勢で</div>
-        <div class="pose-guide-item">✅ 体のラインが見える服</div>
-        <div class="pose-guide-item">✅ 背景はシンプルに</div>
+    <!-- 撮影ガイド -->
+    <div class="shoot-guide">
+      <div class="shoot-guide-title">📏 撮影のポイント</div>
+      <div class="shoot-guide-grid">
+        <div class="shoot-guide-item">✅ 全身が写るよう引いて撮る</div>
+        <div class="shoot-guide-item">✅ 明るい場所・背景はシンプルに</div>
+        <div class="shoot-guide-item">✅ 体のラインがわかる服装で</div>
+        <div class="shoot-guide-item">✅ カメラは目線の高さに固定</div>
+        <div class="shoot-guide-item">✅ 自然な立ち姿勢でリラックス</div>
+        <div class="shoot-guide-item">✅ 側面は真横から（45度NG）</div>
       </div>
     </div>
 
     <!-- Profile -->
-    <div class="profile-row">
+    <div class="profile-row" style="margin-top:16px">
       <div class="profile-group">
         <label>年齢</label>
         <input type="number" id="age" placeholder="例: 68" min="10" max="100">
@@ -420,33 +324,37 @@ select option { background: var(--surface); }
       </div>
     </div>
 
-    <div class="concern-label">気になる症状・部位（複数選択可）</div>
+    <div class="concern-label" style="margin-top:14px">気になる症状（複数選択可）</div>
     <div class="concern-tags">
       <button class="concern-tag" onclick="toggleTag(this)">腰痛</button>
       <button class="concern-tag" onclick="toggleTag(this)">肩こり</button>
       <button class="concern-tag" onclick="toggleTag(this)">膝の痛み</button>
       <button class="concern-tag" onclick="toggleTag(this)">転倒が不安</button>
-      <button class="concern-tag" onclick="toggleTag(this)">歩くのがつらい</button>
+      <button class="concern-tag" onclick="toggleTag(this)">歩行が不安定</button>
       <button class="concern-tag" onclick="toggleTag(this)">疲れやすい</button>
       <button class="concern-tag" onclick="toggleTag(this)">猫背</button>
       <button class="concern-tag" onclick="toggleTag(this)">むくみ</button>
     </div>
 
     <button class="analyze-btn" id="analyze-btn" onclick="analyze()" disabled>
-      <span>🔍</span> AI姿勢分析を開始する
+      <span>🔍</span>
+      <span>AI姿勢分析を開始</span>
+      <span class="photo-count-badge" id="photo-count-badge">0枚選択中</span>
     </button>
   </div>
 
   <!-- Loading -->
   <div class="loading-wrap" id="loading-wrap">
     <div class="loading-spinner"></div>
-    <div class="loading-text">AIが姿勢を分析中...</div>
-    <div class="loading-sub">理学療法士の視点で丁寧に評価しています</div>
+    <div class="loading-title">2方向から精密分析中...</div>
+    <div class="loading-sub">理学療法士の視点でAIが評価しています</div>
     <div class="loading-steps">
-      <div class="loading-step active" id="ls1">🔍 姿勢アライメントを確認中</div>
-      <div class="loading-step" id="ls2">💪 筋力バランスを評価中</div>
-      <div class="loading-step" id="ls3">⚠️ リスク・注意点を整理中</div>
-      <div class="loading-step" id="ls4">🏋️ 個別体操メニューを作成中</div>
+      <div class="loading-step" id="ls1"><div class="step-dot"></div>正面（前額面）の姿勢を分析中</div>
+      <div class="loading-step" id="ls2"><div class="step-dot"></div>側面（矢状面）の姿勢を分析中</div>
+      <div class="loading-step" id="ls3"><div class="step-dot"></div>弱化筋・筋力バランスを評価中</div>
+      <div class="loading-step" id="ls4"><div class="step-dot"></div>リスク・注意点を整理中</div>
+      <div class="loading-step" id="ls5"><div class="step-dot"></div>個別体操メニューを作成中</div>
+      <div class="loading-step" id="ls6"><div class="step-dot"></div>体操の図解イラストを生成中</div>
     </div>
   </div>
 
@@ -457,27 +365,38 @@ select option { background: var(--surface); }
       <div class="result-header-icon">📊</div>
       <div>
         <h2>AI姿勢分析レポート</h2>
-        <p id="result-date">分析完了</p>
+        <p id="result-meta">分析完了</p>
       </div>
     </div>
 
-    <!-- スコア -->
+    <!-- Score -->
     <div class="score-grid" id="score-grid"></div>
 
-    <!-- 姿勢評価 -->
+    <!-- 前額面評価 -->
     <div class="rcard">
       <div class="rcard-header">
-        <div class="rcard-icon">🧍</div>
-        <div class="rcard-title">姿勢・アライメント評価</div>
+        <div class="rcard-icon">🔵</div>
+        <div class="rcard-title">正面（前額面）評価</div>
+        <div class="view-tag">左右対称性</div>
       </div>
-      <div class="result-text" id="posture-text"></div>
+      <div class="result-text" id="frontal-text"></div>
+    </div>
+
+    <!-- 矢状面評価 -->
+    <div class="rcard">
+      <div class="rcard-header">
+        <div class="rcard-icon">🟢</div>
+        <div class="rcard-title">側面（矢状面）評価</div>
+        <div class="view-tag">前後アライメント</div>
+      </div>
+      <div class="result-text" id="sagittal-text"></div>
     </div>
 
     <!-- 筋力評価 -->
     <div class="rcard">
       <div class="rcard-header">
         <div class="rcard-icon">💪</div>
-        <div class="rcard-title">筋力バランス・弱化が疑われる部位</div>
+        <div class="rcard-title">弱化が疑われる筋肉・部位</div>
       </div>
       <div class="result-text" id="muscle-text"></div>
     </div>
@@ -486,122 +405,171 @@ select option { background: var(--surface); }
     <div class="rcard">
       <div class="rcard-header">
         <div class="rcard-icon">⚠️</div>
-        <div class="rcard-title">注意点・リスク評価</div>
+        <div class="rcard-title">注意点・転倒リスク評価</div>
       </div>
       <div class="result-text" id="risk-text"></div>
     </div>
 
-    <!-- 体操メニュー -->
+    <!-- 体操メニュー（図解付き） -->
     <div class="rcard">
       <div class="rcard-header">
         <div class="rcard-icon">🏋️</div>
-        <div class="rcard-title">あなたへの自主トレ・リハビリメニュー</div>
+        <div class="rcard-title">あなた専用 自主トレメニュー</div>
       </div>
       <div class="ex-cards" id="exercise-cards"></div>
     </div>
 
     <div class="disclaimer">
-      <strong>⚠️ 重要：</strong>このAI分析は一般的な健康アドバイスであり、医療診断ではありません。強い痛みや体調の悪化がある場合は、必ず医師・理学療法士にご相談ください。既往症のある方は担当医の許可を得てからご利用ください。
+      <strong>⚠️ 重要：</strong>このAI分析は一般的な健康アドバイスであり、医療診断ではありません。強い痛みや体調不良がある場合は中止し、医師・理学療法士にご相談ください。
     </div>
-
     <button class="retry-btn" onclick="retryAnalysis()">🔄 別の写真で再分析する</button>
   </div>
 
 </div>
 
 <script>
-let imageBase64 = null;
-let imageType = null;
+// ── 画像データ管理 ──
+const images = { front: null, side: null };
+const imageTypes = { front: null, side: null };
 
-// ── ファイル選択 ──
-function onFileSelect(e) {
-  const file = e.target.files[0];
-  if (file) loadImage(file);
+function triggerFile(side) {
+  document.getElementById('file-' + side).click();
 }
-function onDrag(e) { e.preventDefault(); document.getElementById('upload-zone').classList.add('drag'); }
-function offDrag(e) { document.getElementById('upload-zone').classList.remove('drag'); }
-function onDrop(e) {
-  e.preventDefault();
-  offDrag(e);
-  const file = e.dataTransfer.files[0];
-  if (file && file.type.startsWith('image/')) loadImage(file);
-}
+function onDrag(e, side) { e.preventDefault(); document.getElementById('zone-' + side).classList.add('drag'); }
+function offDrag(side) { document.getElementById('zone-' + side).classList.remove('drag'); }
+function onDrop(e, side) { e.preventDefault(); offDrag(side); const f = e.dataTransfer.files[0]; if (f && f.type.startsWith('image/')) loadImage(f, side); }
+function onFileSelect(e, side) { const f = e.target.files[0]; if (f) loadImage(f, side); }
 
-function loadImage(file) {
+function loadImage(file, side) {
   const reader = new FileReader();
   reader.onload = (e) => {
     const result = e.target.result;
-    imageBase64 = result.split(',')[1];
-    imageType = file.type;
-    document.getElementById('preview-img').src = result;
-    document.getElementById('preview-wrap').style.display = 'block';
-    document.getElementById('upload-zone').style.display = 'none';
-    document.getElementById('analyze-btn').disabled = false;
+    images[side] = result.split(',')[1];
+    imageTypes[side] = file.type;
+    const zone = document.getElementById('zone-' + side);
+    // show preview
+    let img = zone.querySelector('img');
+    if (!img) { img = document.createElement('img'); zone.appendChild(img); }
+    img.src = result;
+    // remove btn
+    let rmBtn = zone.querySelector('.remove-btn');
+    if (!rmBtn) {
+      rmBtn = document.createElement('button');
+      rmBtn.className = 'remove-btn';
+      rmBtn.textContent = '✕';
+      rmBtn.onclick = (ev) => { ev.stopPropagation(); removeImage(side); };
+      zone.appendChild(rmBtn);
+    }
+    zone.classList.add('has-image');
+    updateAnalyzeBtn();
   };
   reader.readAsDataURL(file);
 }
 
-function removeImage() {
-  imageBase64 = null;
-  imageType = null;
-  document.getElementById('preview-wrap').style.display = 'none';
-  document.getElementById('upload-zone').style.display = 'block';
-  document.getElementById('analyze-btn').disabled = true;
-  document.getElementById('file-input').value = '';
+function removeImage(side) {
+  images[side] = null;
+  imageTypes[side] = null;
+  const zone = document.getElementById('zone-' + side);
+  zone.querySelector('img')?.remove();
+  zone.querySelector('.remove-btn')?.remove();
+  zone.classList.remove('has-image');
+  document.getElementById('file-' + side).value = '';
+  updateAnalyzeBtn();
+}
+
+function updateAnalyzeBtn() {
+  const count = (images.front ? 1 : 0) + (images.side ? 1 : 0);
+  const btn = document.getElementById('analyze-btn');
+  const badge = document.getElementById('photo-count-badge');
+  btn.disabled = count === 0;
+  badge.textContent = count + '枚選択中';
 }
 
 function toggleTag(btn) { btn.classList.toggle('selected'); }
 
-// ── 分析 ──
-async function analyze() {
-  if (!imageBase64) return;
+// ── ローディングアニメ ──
+let stepTimer = null;
+function startLoadingSteps() {
+  const steps = ['ls1','ls2','ls3','ls4','ls5','ls6'];
+  let si = 0;
+  steps.forEach(id => {
+    const el = document.getElementById(id);
+    el.classList.remove('active','done');
+  });
+  stepTimer = setInterval(() => {
+    if (si > 0) {
+      document.getElementById(steps[si-1]).classList.remove('active');
+      document.getElementById(steps[si-1]).classList.add('done');
+    }
+    if (si < steps.length) {
+      document.getElementById(steps[si]).classList.add('active');
+      si++;
+    } else {
+      clearInterval(stepTimer);
+    }
+  }, 1000);
+}
+function stopLoadingSteps() {
+  clearInterval(stepTimer);
+  ['ls1','ls2','ls3','ls4','ls5','ls6'].forEach(id => {
+    document.getElementById(id).classList.remove('active');
+    document.getElementById(id).classList.add('done');
+  });
+}
 
+// ── 分析メイン ──
+async function analyze() {
   const age = document.getElementById('age').value;
   const gender = document.getElementById('gender').value;
   const activity = document.getElementById('activity').value;
   const concerns = [...document.querySelectorAll('.concern-tag.selected')].map(t => t.textContent).join('、');
 
-  // UI切り替え
-  document.querySelector('.upload-card').style.display = 'none';
+  document.getElementById('upload-section').style.display = 'none';
   document.getElementById('loading-wrap').classList.add('show');
   document.getElementById('result-section').classList.remove('show');
+  startLoadingSteps();
 
-  // ローディングアニメ
-  const steps = ['ls1','ls2','ls3','ls4'];
-  let si = 0;
-  const stepTimer = setInterval(() => {
-    if (si > 0) document.getElementById(steps[si-1]).classList.replace('active','done');
-    if (si < steps.length) { document.getElementById(steps[si]).classList.add('active'); si++; }
-    else clearInterval(stepTimer);
-  }, 1200);
+  // メッセージの画像コンテンツを構築
+  const contentArr = [];
+  if (images.front) {
+    contentArr.push({ type: 'image', source: { type: 'base64', media_type: imageTypes.front, data: images.front } });
+    contentArr.push({ type: 'text', text: '↑ これは正面（前額面）の写真です。' });
+  }
+  if (images.side) {
+    contentArr.push({ type: 'image', source: { type: 'base64', media_type: imageTypes.side, data: images.side } });
+    contentArr.push({ type: 'text', text: '↑ これは側面（矢状面）の写真です。' });
+  }
 
-  const systemPrompt = `あなたは7年の臨床経験を持つ理学療法士（PT）です。急性期・回復期・訪問リハで多くの患者の姿勢評価を行ってきました。
-提供された姿勢写真を理学療法士の視点で分析し、以下のJSON形式のみで回答してください。前置き・後書き・コードブロック記号は一切不要です。
+  const photoDesc = [images.front ? '正面写真' : null, images.side ? '側面写真' : null].filter(Boolean).join('と');
+
+  contentArr.push({ type: 'text', text: `
+患者情報：${age ? age + '歳' : '年齢不明'} ${gender || '性別不明'} 活動レベル：${activity || '不明'} 気になる症状：${concerns || 'なし'}
+
+${photoDesc}を理学療法士として分析し、以下のJSON形式のみで回答してください。前置き・後書き・コードブロックは不要です。
 
 {
-  "scores": {
-    "posture": 数値(0-100),
-    "balance": 数値(0-100),
-    "risk": 数値(0-100、高いほど注意)
-  },
-  "posture_eval": "姿勢・アライメントの評価文（200字程度）",
-  "muscle_eval": "弱化が疑われる筋肉・部位の説明（200字程度）",
-  "risk_eval": "注意点・転倒リスクなど（150字程度）",
+  "scores": { "posture": 0-100の数値, "balance": 0-100の数値, "risk": 0-100の数値(高いほど注意) },
+  "frontal_eval": "前額面評価（肩の高さ・骨盤傾斜・脊柱側弯の有無など左右対称性を中心に200字）",
+  "sagittal_eval": "矢状面評価（頭部前方位・胸椎後弯・腰椎前弯・骨盤前後傾など前後アライメントを中心に200字）",
+  "muscle_eval": "弱化が疑われる筋肉・部位の説明（具体的な筋名も含めて200字）",
+  "risk_eval": "転倒リスク・日常生活での注意点（150字）",
   "exercises": [
-    {"name": "体操名", "desc": "やり方と効果（2〜3文）", "freq": "頻度・回数"},
-    {"name": "体操名", "desc": "やり方と効果（2〜3文）", "freq": "頻度・回数"},
-    {"name": "体操名", "desc": "やり方と効果（2〜3文）", "freq": "頻度・回数"},
-    {"name": "体操名", "desc": "やり方と効果（2〜3文）", "freq": "頻度・回数"},
-    {"name": "体操名", "desc": "やり方と効果（2〜3文）", "freq": "頻度・回数"}
+    {
+      "name": "体操名",
+      "target": "主なターゲット筋",
+      "desc": "効果の説明（1〜2文）",
+      "steps": ["手順1", "手順2", "手順3"],
+      "freq": "回数・頻度",
+      "svg_desc": "この体操のポーズを表すSVGイラストの説明（人物が何をしているか詳細に。例：椅子に座り両腕を前に伸ばして前傾している）"
+    }
   ]
 }
 
-重要：写真から読み取れる姿勢の特徴（頭部前方位、骨盤傾斜、脊柱カーブ、左右差など）を具体的に記述してください。写真が不鮮明な場合も、見える範囲で評価してください。回答はJSONのみ。`;
+写真が提供されていない面は「写真なし」と記載し、提供された写真から読み取れる情報で分析してください。体操は5つ提案してください。` });
 
-  const userMsg = `患者情報：${age ? age + '歳' : '年齢不明'} ${gender || '性別不明'} 活動レベル：${activity || '不明'} 気になる症状：${concerns || 'なし'}
+  const systemPrompt = `あなたは7年の臨床経験を持つ理学療法士（PT）です。急性期・回復期・訪問リハでの豊富な経験があります。提供された姿勢写真を専門家の視点で分析し、指定のJSON形式のみで回答してください。余計な文章は一切含めないでください。`;
 
-この方の姿勢写真を分析してください。`;
-
+  let result = null;
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -610,43 +578,32 @@ async function analyze() {
         model: 'claude-sonnet-4-20250514',
         max_tokens: 1000,
         system: systemPrompt,
-        messages: [{
-          role: 'user',
-          content: [
-            { type: 'image', source: { type: 'base64', media_type: imageType, data: imageBase64 } },
-            { type: 'text', text: userMsg }
-          ]
-        }]
+        messages: [{ role: 'user', content: contentArr }]
       })
     });
-
-    clearInterval(stepTimer);
-    steps.forEach(id => { document.getElementById(id).classList.remove('active'); document.getElementById(id).classList.add('done'); });
-
     const data = await res.json();
     let text = data.content?.map(c => c.text || '').join('') || '';
     text = text.replace(/```json|```/g, '').trim();
-
-    let result;
-    try { result = JSON.parse(text); }
-    catch { result = getDemoResult(); }
-
-    showResult(result);
+    try { result = JSON.parse(text); } catch { result = getDemoResult(); }
   } catch(e) {
-    clearInterval(stepTimer);
-    showResult(getDemoResult());
+    result = getDemoResult();
   }
 
+  stopLoadingSteps();
   document.getElementById('loading-wrap').classList.remove('show');
+  showResult(result, photoDesc);
+
+  // 体操イラストを生成
+  setTimeout(() => generateIllustrations(result.exercises || []), 300);
 }
 
-function showResult(r) {
-  // スコア
-  const sg = document.getElementById('score-grid');
-  const ps = r.scores?.posture ?? 72;
+// ── 結果表示 ──
+function showResult(r, photoDesc) {
+  const ps = r.scores?.posture ?? 70;
   const bs = r.scores?.balance ?? 65;
-  const rs = r.scores?.risk ?? 38;
-  sg.innerHTML = `
+  const rs = r.scores?.risk ?? 40;
+
+  document.getElementById('score-grid').innerHTML = `
     <div class="score-card">
       <div class="score-label">姿勢スコア</div>
       <div class="score-val ${ps>=80?'good':ps>=60?'mid':'bad'}">${ps}</div>
@@ -660,60 +617,141 @@ function showResult(r) {
     <div class="score-card">
       <div class="score-label">注意レベル</div>
       <div class="score-val ${rs<=30?'good':rs<=60?'mid':'bad'}">${rs}</div>
-      <div class="score-sub">/ 100（低いほど良い）</div>
+      <div class="score-sub">低いほど良い</div>
     </div>`;
 
-  document.getElementById('posture-text').textContent = r.posture_eval || '';
+  document.getElementById('frontal-text').textContent = r.frontal_eval || '正面写真が提供されていないため評価できません。';
+  document.getElementById('sagittal-text').textContent = r.sagittal_eval || '側面写真が提供されていないため評価できません。';
   document.getElementById('muscle-text').textContent = r.muscle_eval || '';
   document.getElementById('risk-text').textContent = r.risk_eval || '';
 
   const ec = document.getElementById('exercise-cards');
   ec.innerHTML = '';
   (r.exercises || []).forEach((ex, i) => {
+    const steps = (ex.steps || []).map((s, si) =>
+      `<div class="ex-step-item"><div class="ex-step-num">${si+1}</div><div class="ex-step-text">${s}</div></div>`
+    ).join('');
     ec.innerHTML += `
-      <div class="ex-card">
-        <div class="ex-num">${i+1}</div>
-        <div class="ex-body">
-          <div class="ex-name">${ex.name}</div>
-          <div class="ex-desc">${ex.desc}</div>
-          <div class="ex-freq">📅 ${ex.freq}</div>
+      <div class="ex-card" id="ex-card-${i}">
+        <div class="ex-card-top">
+          <div class="ex-illust" id="illust-${i}">
+            <div class="ex-illust-loading">
+              <div class="ex-illust-spinner"></div>
+              <div class="ex-illust-text">生成中...</div>
+            </div>
+          </div>
+          <div class="ex-body">
+            <div class="ex-num-name">
+              <div class="ex-num">${i+1}</div>
+              <div class="ex-name">${ex.name}</div>
+            </div>
+            <div class="ex-target">🎯 ${ex.target || ''}</div>
+            <div class="ex-desc">${ex.desc || ''}</div>
+            <div class="ex-freq">📅 ${ex.freq || ''}</div>
+          </div>
+        </div>
+        <div class="ex-steps">
+          <div class="ex-steps-title">STEPS</div>
+          <div class="ex-step-list">${steps}</div>
         </div>
       </div>`;
   });
 
   const now = new Date();
-  document.getElementById('result-date').textContent = `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日 分析完了`;
+  document.getElementById('result-meta').textContent =
+    `${photoDesc}で分析 · ${now.getFullYear()}/${now.getMonth()+1}/${now.getDate()}`;
+
   document.getElementById('result-section').classList.add('show');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── SVGイラスト生成（Claude APIで体操ごとに） ──
+async function generateIllustrations(exercises) {
+  for (let i = 0; i < exercises.length; i++) {
+    const ex = exercises[i];
+    const illustEl = document.getElementById('illust-' + i);
+    if (!illustEl) continue;
+
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          system: `あなたはSVGイラストの専門家です。リハビリ体操のポーズを表すシンプルなSVGイラストを生成してください。
+ルール：
+- viewBox="0 0 100 120"のSVGのみ出力。前置き・後書き不要。
+- 棒人間スタイル（円＋線）でシンプルに
+- 色は#2a7f6f（緑）と#e6f4f1（薄緑）のみ使用
+- ポーズが一目でわかるように工夫する
+- SVGタグのみ出力すること`,
+          messages: [{
+            role: 'user',
+            content: `体操名：${ex.name}\nポーズの説明：${ex.svg_desc || ex.desc}\n\nこの体操のポーズのSVGイラストを生成してください。`
+          }]
+        })
+      });
+      const data = await res.json();
+      let svgText = data.content?.map(c => c.text || '').join('') || '';
+      svgText = svgText.replace(/```svg|```xml|```/g, '').trim();
+
+      if (svgText.includes('<svg')) {
+        illustEl.innerHTML = svgText;
+      } else {
+        illustEl.innerHTML = getDefaultSVG(i);
+      }
+    } catch(e) {
+      illustEl.innerHTML = getDefaultSVG(i);
+    }
+  }
+}
+
+function getDefaultSVG(i) {
+  const poses = [
+    // 片足立ち
+    `<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="18" r="10" fill="#2a7f6f"/><line x1="50" y1="28" x2="50" y2="65" stroke="#2a7f6f" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="40" x2="35" y2="58" stroke="#2a7f6f" stroke-width="3.5" stroke-linecap="round"/><line x1="50" y1="40" x2="65" y2="52" stroke="#2a7f6f" stroke-width="3.5" stroke-linecap="round"/><line x1="50" y1="65" x2="50" y2="95" stroke="#2a7f6f" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="95" x2="50" y2="108" stroke="#2a7f6f" stroke-width="3.5" stroke-linecap="round"/><line x1="50" y1="75" x2="62" y2="90" stroke="#2a7f6f" stroke-width="3.5" stroke-linecap="round"/><circle cx="62" cy="90" r="3" fill="#e6f4f1" stroke="#2a7f6f" stroke-width="2"/></svg>`,
+    // スクワット
+    `<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="18" r="10" fill="#2a7f6f"/><line x1="50" y1="28" x2="50" y2="58" stroke="#2a7f6f" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="38" x2="30" y2="50" stroke="#2a7f6f" stroke-width="3.5" stroke-linecap="round"/><line x1="50" y1="38" x2="70" y2="50" stroke="#2a7f6f" stroke-width="3.5" stroke-linecap="round"/><line x1="50" y1="58" x2="35" y2="78" stroke="#2a7f6f" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="58" x2="65" y2="78" stroke="#2a7f6f" stroke-width="4" stroke-linecap="round"/><line x1="35" y1="78" x2="28" y2="100" stroke="#2a7f6f" stroke-width="3.5" stroke-linecap="round"/><line x1="65" y1="78" x2="72" y2="100" stroke="#2a7f6f" stroke-width="3.5" stroke-linecap="round"/></svg>`,
+    // ストレッチ
+    `<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="15" r="10" fill="#2a7f6f"/><line x1="50" y1="25" x2="50" y2="60" stroke="#2a7f6f" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="35" x2="25" y2="28" stroke="#2a7f6f" stroke-width="3.5" stroke-linecap="round"/><line x1="50" y1="35" x2="75" y2="28" stroke="#2a7f6f" stroke-width="3.5" stroke-linecap="round"/><line x1="50" y1="60" x2="38" y2="88" stroke="#2a7f6f" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="60" x2="62" y2="88" stroke="#2a7f6f" stroke-width="4" stroke-linecap="round"/><line x1="38" y1="88" x2="34" y2="108" stroke="#2a7f6f" stroke-width="3.5" stroke-linecap="round"/><line x1="62" y1="88" x2="66" y2="108" stroke="#2a7f6f" stroke-width="3.5" stroke-linecap="round"/></svg>`,
+    // 仰向け体操
+    `<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="85" width="90" height="6" rx="3" fill="#e6f4f1" stroke="#2a7f6f" stroke-width="1.5"/><circle cx="20" cy="72" r="9" fill="#2a7f6f"/><line x1="29" y1="72" x2="75" y2="72" stroke="#2a7f6f" stroke-width="4" stroke-linecap="round"/><line x1="45" y1="72" x2="40" y2="85" stroke="#2a7f6f" stroke-width="3.5" stroke-linecap="round"/><line x1="60" y1="72" x2="55" y2="55" stroke="#2a7f6f" stroke-width="3.5" stroke-linecap="round"/><line x1="75" y1="72" x2="80" y2="85" stroke="#2a7f6f" stroke-width="3.5" stroke-linecap="round"/><line x1="55" y1="55" x2="60" y2="40" stroke="#2a7f6f" stroke-width="3.5" stroke-linecap="round"/></svg>`,
+    // 座位体操
+    `<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><rect x="25" y="75" width="55" height="8" rx="3" fill="#e6f4f1" stroke="#2a7f6f" stroke-width="1.5"/><rect x="22" y="83" width="5" height="25" rx="2" fill="#e6f4f1" stroke="#2a7f6f" stroke-width="1.5"/><rect x="73" y="83" width="5" height="25" rx="2" fill="#e6f4f1" stroke="#2a7f6f" stroke-width="1.5"/><circle cx="50" cy="18" r="10" fill="#2a7f6f"/><line x1="50" y1="28" x2="50" y2="60" stroke="#2a7f6f" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="38" x2="28" y2="30" stroke="#2a7f6f" stroke-width="3.5" stroke-linecap="round"/><line x1="50" y1="38" x2="72" y2="30" stroke="#2a7f6f" stroke-width="3.5" stroke-linecap="round"/><line x1="50" y1="60" x2="38" y2="75" stroke="#2a7f6f" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="60" x2="62" y2="75" stroke="#2a7f6f" stroke-width="4" stroke-linecap="round"/></svg>`
+  ];
+  return poses[i % poses.length];
 }
 
 function getDemoResult() {
   return {
-    scores: { posture: 68, balance: 62, risk: 42 },
-    posture_eval: "頭部がやや前方に出た「頭部前方位」の傾向があります。胸椎（背中の上部）の後弯が増強しており、いわゆる「猫背」の姿勢が見られます。骨盤はわずかに後傾しており、腰椎の前弯が減少しています。左右の肩の高さに軽度の差があり、右肩がやや下がった状態です。",
-    muscle_eval: "頸部後面の筋（頭板状筋・頸板状筋）が短縮・硬化している可能性があります。腹直筋の過緊張と、腹横筋・多裂筋などのインナーマッスルの弱化が疑われます。大殿筋・腸腰筋のバランスが崩れており、股関節周囲の筋力低下が姿勢に影響していると考えられます。",
-    risk_eval: "猫背姿勢により重心がやや前方に位置しやすく、つまずきや前方への転倒リスクがあります。腰部への負担も増加しやすい姿勢です。急な動作転換や段差での注意が必要です。",
+    scores: { posture: 68, balance: 63, risk: 45 },
+    frontal_eval: "両肩の高さに左右差が認められ、右肩がやや下制しています。骨盤は左に軽度傾斜しており、体幹の側方偏位が疑われます。脊柱の軽度側弯（右凸）の可能性があります。足部のアーチ低下も見受けられ、下肢アライメントに影響している可能性があります。",
+    sagittal_eval: "頭部が重心線より前方に位置する「頭部前方位」が認められます。胸椎の後弯増強（いわゆる猫背）があり、それに伴い腰椎の前弯が減少しています。骨盤はやや後傾しており、股関節の屈曲拘縮が疑われます。全体的に重心が前方にシフトしており転倒リスクに注意が必要です。",
+    muscle_eval: "頸部後面筋群（頭板状筋・頸板状筋）の短縮・過緊張が疑われます。胸椎伸展に関わる脊柱起立筋・菱形筋の弱化、腹横筋・多裂筋などのインナーマッスルの機能低下が考えられます。また大殿筋・中殿筋の弱化が骨盤の安定性低下と側方傾斜に関与していると考えられます。",
+    risk_eval: "頭部前方位と重心前方シフトにより、前方転倒リスクが中程度あります。段差・つまずきに注意が必要です。急な方向転換時のバランス崩れにも注意してください。",
     exercises: [
-      { name: "胸椎モビリゼーション（胸開き体操）", desc: "椅子に座り両手を後頭部で組み、ゆっくり上を向いて胸を開きます。猫背の改善と胸椎の可動性向上に効果的です。", freq: "1日3回・5〜10回ずつ" },
-      { name: "腹横筋トレーニング（ドローイン）", desc: "仰向けで膝を立て、息を吐きながらおへそを背骨に引き込むように力を入れます。体幹インナーマッスルを鍛え、腰痛予防に有効です。", freq: "1日2回・10秒×10回" },
-      { name: "大殿筋強化（ブリッジ運動）", desc: "仰向けで膝を立て、お尻をゆっくり持ち上げます。3秒キープして下ろします。姿勢保持に必要なお尻の筋肉を強化します。", freq: "1日2回・10回×2セット" },
-      { name: "頸部ストレッチ", desc: "椅子に座り、耳を肩に近づけるように首をゆっくり横に倒します。首の後面の緊張をほぐし、頭部前方位の改善を助けます。", freq: "1日3回・各20秒キープ" },
-      { name: "片足立ちバランス練習", desc: "壁の近くで片足立ちを行います。体幹・股関節周囲筋を同時に鍛え、転倒予防と姿勢制御の改善に効果的です。", freq: "1日2回・各30秒×左右" }
+      { name: "胸椎伸展ストレッチ", target: "脊柱起立筋・菱形筋", desc: "猫背の改善と胸椎の可動性向上に効果的です。", steps: ["椅子に座り両手を後頭部で組む", "ゆっくり上を向いて胸を開く", "3秒キープしてゆっくり戻す"], freq: "1日3回・10回ずつ", svg_desc: "椅子に座り両手を後頭部で組んで上を向き胸を開いているポーズ" },
+      { name: "ドローイン（腹横筋訓練）", target: "腹横筋・多裂筋", desc: "体幹インナーマッスルを鍛え腰痛予防と姿勢改善に有効です。", steps: ["仰向けで膝を立てる", "息をゆっくり吐きながらおへそを引き込む", "10秒キープして力を抜く"], freq: "1日2回・10秒×10回", svg_desc: "仰向けに寝て膝を立ておへそを引き込んでいるポーズ" },
+      { name: "中殿筋強化（サイドライング）", target: "中殿筋・大殿筋", desc: "骨盤の安定性を高め、側方傾斜の改善に働きます。", steps: ["横向きに寝て体をまっすぐに保つ", "上の足をゆっくり30cm持ち上げる", "3秒キープしてゆっくり下ろす"], freq: "1日2回・左右各10回×2セット", svg_desc: "横向きに寝て上の足を持ち上げているポーズ" },
+      { name: "頸部ストレッチ", target: "頸部後面筋群・僧帽筋上部", desc: "頭部前方位の改善と首こりの解消に効果的です。", steps: ["椅子に深く座り背筋を伸ばす", "耳を肩に近づけるように首をゆっくり横に倒す", "20秒キープして反対側も行う"], freq: "1日3回・各20秒×左右", svg_desc: "椅子に座り首を横に傾けてストレッチしているポーズ" },
+      { name: "片足立ちバランス練習", target: "大殿筋・中殿筋・下腿三頭筋", desc: "転倒予防と体幹・股関節周囲筋の強化に効果的です。", steps: ["壁の近くに立ち片手を軽く添える", "片足をゆっくり床から持ち上げる", "30秒キープして反対側も行う"], freq: "1日2回・各30秒×左右", svg_desc: "壁の近くで片足立ちをしているポーズ" }
     ]
   };
 }
 
 function retryAnalysis() {
-  removeImage();
+  removeImage('front');
+  removeImage('side');
   document.getElementById('result-section').classList.remove('show');
-  document.querySelector('.upload-card').style.display = 'block';
+  document.getElementById('upload-section').style.display = 'block';
   document.querySelectorAll('.concern-tag').forEach(t => t.classList.remove('selected'));
+  updateAnalyzeBtn();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-</script>
 
-<script>
+// ── PWA ──
 (function(){
-  // Android install
   let deferredPrompt = null;
   const banner = document.getElementById('install-banner');
   window.addEventListener('beforeinstallprompt', (e) => {
@@ -730,45 +768,21 @@ function retryAnalysis() {
   document.getElementById('dismiss-btn')?.addEventListener('click', () => {
     if (banner) banner.style.display = 'none';
   });
-  window.addEventListener('appinstalled', () => {
-    if (banner) banner.style.display = 'none';
-    showPwaToast('ホーム画面に追加しました！');
-  });
-
-  // iOS guide
   const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent.toLowerCase());
   const isStandalone = window.navigator.standalone === true;
   if (isIOS && !isStandalone) {
     const iosBanner = document.getElementById('ios-banner');
-    if (iosBanner) setTimeout(() => { iosBanner.style.display = 'flex'; }, 2000);
+    if (iosBanner) setTimeout(() => { iosBanner.style.display = 'flex'; }, 2500);
   }
   document.getElementById('ios-dismiss')?.addEventListener('click', () => {
     document.getElementById('ios-banner').style.display = 'none';
   });
-
-  // Toast
-  function showPwaToast(msg) {
-    const t = document.getElementById('pwa-toast');
-    if (!t) return;
-    t.textContent = msg; t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 3000);
-  }
-
-  // Service Worker
   if ('serviceWorker' in navigator) {
-    const sw = `
-const CACHE='rakutore-v1';
-self.addEventListener('install',e=>{self.skipWaiting();});
-self.addEventListener('activate',e=>{self.clients.claim();});
-self.addEventListener('fetch',e=>{
-  if(e.request.url.includes('anthropic.com')||e.request.url.includes('googleapis.com'))return;
-  e.respondWith(fetch(e.request).catch(()=>caches.match(e.request)));
-});`;
-    const blob = new Blob([sw], {type:'application/javascript'});
+    const sw = `const CACHE='rakutore-v2';self.addEventListener('install',e=>{self.skipWaiting();});self.addEventListener('activate',e=>{self.clients.claim();});self.addEventListener('fetch',e=>{if(e.request.url.includes('anthropic.com')||e.request.url.includes('googleapis.com'))return;e.respondWith(fetch(e.request).catch(()=>caches.match(e.request)));});`;
+    const blob = new Blob([sw],{type:'application/javascript'});
     navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(()=>{});
   }
 })();
 </script>
-
 </body>
 </html>
